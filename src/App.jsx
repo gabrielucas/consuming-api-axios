@@ -36,6 +36,7 @@ function App() {
 
         <tbody>
           {
+
             users.map((user, id) => {
               return (
                 <>
@@ -47,8 +48,8 @@ function App() {
                   </tr>
                 </>
               )
-            })
-            // console.log(users)                      
+            })   
+                              
           }
         </tbody>
       </table>
