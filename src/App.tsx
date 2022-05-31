@@ -2,10 +2,8 @@
 import './App.css'
 import Router from './router/index'
 
-
 function App() { 
-
-  return ( <Router />  )
+  return <Router />
 }
 
 export default App;

@@ -4,28 +4,28 @@ import { getUsers } from "./services";
 
 const User:FunctionComponent = () => {
 
-    const [users, setUsers] = useState<IUser[]>([])
+  const [users, setUsers] = useState<IUser[]>([]);
 
-    const setAllUsers = useCallback( async () => {
+  const setAllUsers = useCallback( async () => {
 
-        try {
-            const res = await getUsers();
-            setUsers(res)
-        } catch (error) {
-            console.log(error.message)
-        }
+    try {
+        const res = await getUsers();
+        setUsers(res)
+    } catch (error) {
+        console.log(error.message)
+    }
 
-        
-    }, [])
+      
+  }, []);
 
-    // reage à mudança de estado do componente
-    useEffect(() => {
-        setAllUsers();
-    }, [setAllUsers]);  
+  // reage à mudança de estado do componente
+  useEffect(() => {
+      setAllUsers();
+  }, [setAllUsers]);  
 
-return (
-
-    <table>
+  return (
+    <>      
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -39,9 +39,8 @@ return (
 
         <tbody>
           {
-
             users.map((user) => {
-              return (
+                return (
                   <tr key={user.id}>
                     <td>{user.id}</td>
                     <td>{user.name}</td>
@@ -50,12 +49,13 @@ return (
                     <td>{user.phone}</td>
                     <td>{user.address.street}, {user.address.suite} - {user.address.city}</td>
                   </tr>
-              )
-            })   
-                              
+                )
+            })                                   
           }
         </tbody>
-    </table>
-)};
+      </table>      
+    </>
+  )
+};
 
 export default User;
